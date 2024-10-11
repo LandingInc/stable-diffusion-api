@@ -20,7 +20,10 @@
   "homepage": "https://github.com/jaschahuisman/sd-api.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaschahuisman/sd-api.git"
+    "url": "https://github.com/LandingInc/stable-diffusion-api.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "javascript",
