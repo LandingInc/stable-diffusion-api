@@ -1,9 +1,17 @@
 {
-  "name": "stable-diffusion-api",
+  "name": "@landinginc/stable-diffusion-api",
   "version": "0.0.6",
   "description": "API translation for Automatic1111 Stable Diffusion WebUI",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -24,7 +32,10 @@
     "stable-diffusion-webui"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:types": "tsc -p tsconfig.types.json"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
